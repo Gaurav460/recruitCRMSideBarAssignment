@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centered Sidebar Example</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -14,129 +16,241 @@
         <!-- Left narrow bar -->
         <div class="left-bar">
             <div class="top-buttons">
-                <button>=</button>
-                <button onclick="showSection('dashboard')">D</button>
-                <button onclick="showSection('tasks')">T</button>
+                <span><i class="fa-solid fa-table"></i></span>
+                <span onclick="showSection('dashboard')"><i class="fa-solid fa-table-columns"></i></span>
+                <span onclick="showSection('tasks')"><i class="fa-solid fa-list-check"></i></i></span>
             </div>
             <div class="bottom-buttons">
-                <button onclick="showSection('settings')">S</button>
-                <button>U</button>
+                <span onclick="showSection('settings')"><i class="fa-solid fa-gear"></i></span>
+                <span><i class="fa-solid fa-user"></i></span>
             </div>
         </div>
         <!-- Right panel -->
         <div class="right-panel" id="rightPanel">
-            <button class="toggle-btn" id="toggleBtn">➡</button>
-            <div class="content">
-
+            <div class="header-bar">
                 <!-- Dynamic Heading -->
                 <div id="dynamicHeading" class="section-heading">
                     <span class="text-label">Dashboard</span>
                 </div>
 
+                <!-- Toggle Button -->
+                <span class="toggle-btn" id="toggleBtn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </span>
+            </div>
+            <div class="content">
+
+
+
                 <!-- Common Search Bar -->
                 <div class="search-bar">
-                    <span class="search-icon">🔍</span>
+                    <span class="search-icon"> <i class="fa-solid fa-search"></i>
+                    </span>
                     <input type="text" placeholder="Search..." class="text-label">
                 </div>
 
                 <!-- Dynamic Content Area (all pre-written) -->
                 <div id="dynamicContent">
                     <!-- Dashboard Section -->
-                    <div class="section" id="dashboardSection">
-                        <!-- Category 1 -->
-                        <div class="category-heading">Dashboard Types</div>
-                        <div class="menu-item">👁️ <span class="text-label">Overview</span></div>
+                    <div class="section" id="dashboardSection" style="display:none;">
 
-                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
-                            📄 <span class="text-label">Executive Summary</span>
-                            <span class="arrow">▶</span>
-                        </div>
-                        <div class="sub-menu">
-                            <div class="sub-item">Revenue Overview</div>
-                            <div class="sub-item">Key Performance Indicators</div>
-                            <div class="sub-item">Strategic Goals Progress</div>
-                            <div class="sub-item">Department Highlights</div>
-                        </div>
+                        <div class="category-heading text-label">Dashboard Types</div>
 
-                        <div class="menu-item">📊 <span class="text-label">Operations Dashboard</span></div>
+                        <div class="task-group">
+                            <div class="task-header">
+                                <i class="fa-regular fa-eye"></i><span class="text-label">Overview</span>
+                            </div>
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-solid fa-table-list"></i>
+                                <span class="text-label">Executive Summary</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks" style="display:none;">
+                                <div class="sub-item text-label">Revenue Overview</div>
+                                <div class="sub-item text-label">Key Performance Indicators</div>
+                                <div class="sub-item text-label">Strategic Goals Progress</div>
+                                <div class="sub-item text-label">Department Highlights</div>
+                            </div>
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-solid fa-chart-bar"></i>
+                                <span class="text-label">Operations Dashboards</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks">
+                                <div class="sub-item text-label">Project Timeline</div>
+                                <div class="sub-item text-label">Resource Allocation</div>
+                                <div class="sub-item text-label">Team Performance</div>
+                                <div class="sub-item text-label">Capacity Planning</div>
 
-                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
-                            💹 <span class="text-label">Financial Dashboard</span>
-                            <span class="arrow">▶</span>
-                        </div>
-                        <div class="sub-menu">
-                            <div class="sub-item">Budget Overview</div>
-                            <div class="sub-item">Expense Tracking</div>
-                            <div class="sub-item">Profit & Loss Reports</div>
-                        </div>
 
-                        <!-- Category 2 -->
-                        <div class="category-heading">Report Summaries</div>
-                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
-                            📑 <span class="text-label">Weekly Reports</span>
-                            <span class="arrow">▶</span>
-                        </div>
-                        <div class="sub-menu">
-                            <div class="sub-item">Team Status</div>
-                            <div class="sub-item">Project Updates</div>
-                        </div>
+                            </div>
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span class="text-label">Financial Dashboard</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks">
+                                <div class="sub-item text-label">Budget vs Actual</div>
+                                <div class="sub-item text-label">Cash Flow Analysis</div>
+                                <div class="sub-item text-label">Expense Breakdown</div>
+                                <div class="sub-item text-label">Profit & Loss Summary</div>
 
-                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
-                            ⭐ <span class="text-label">Monthly Insights</span>
-                            <span class="arrow">▶</span>
-                        </div>
-                        <div class="sub-menu">
-                            <div class="sub-item">Market Trends</div>
-                            <div class="sub-item">Sales Growth</div>
+                            </div>
                         </div>
 
-                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
-                            📊 <span class="text-label">Quarterly Analysis</span>
-                            <span class="arrow">▶</span>
-                        </div>
-                        <div class="sub-menu">
-                            <div class="sub-item">Q1 Review</div>
-                            <div class="sub-item">Q2 Review</div>
-                            <div class="sub-item">Q3 Review</div>
-                            <div class="sub-item">Q4 Review</div>
-                        </div>
+                        <div class="category-heading text-label">Report Summaries</div>
 
-                        <!-- Category 3 -->
-                        <div class="category-heading">Business Intelligence</div>
-                        <div class="menu-item">📈 <span class="text-label">Performance Metrics</span></div>
-                        <div class="menu-item">🤖 <span class="text-label">Predictive Analytics</span></div>
+                        <div class="task-group">
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-regular fa-clipboard"></i>
+                                <span class="text-label">Weekly Reports</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks" style="display:none;">
+                                <div class="sub-item text-label">Team Productivity: 87%</div>
+                                <div class="sub-item text-label">Project Completion: 12 / 15</div>
+                                <div class="sub-item text-label">Budget Utilization: 73%</div>
+                                <div class="sub-item text-label">Client Satisfaction: 4.6 / 5</div>
+
+                            </div>
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-solid fa-star-of-david"></i>
+                                <span class="text-label">Monthly Insights</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks">
+                                <div class="sub-item text-label">Revenue Growth: +15.3%</div>
+                                <div class="sub-item text-label">New Clients: 24</div>
+                                <div class="sub-item text-label">Team Expansion: 8 hires</div>
+                                <div class="sub-item text-label">Cost Reduction: 7.2 %</div>
+
+
+                            </div>
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-regular fa-eye"></i>
+                                <span class="text-label">Quaterly Analysis</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks">
+
+                                <div class="sub-item text-label">Market Position: Imprv.</div>
+                                <div class="sub-item text-label">ROI: 23.4%</div>
+                                <div class="sub-item text-label">Customer Retenton: 92%</div>
+                                <div class="sub-item text-label">Innovation Index: 8.7 / 10</div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="category-heading text-label">Business Intelligence</div>
+
+                        <div class="task-group">
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-regular fa-chart-bar"></i>
+                                <span class="text-label">Performance Metrics</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks" style="display:none;">
+                                <div class="sub-item text-label">Sales Conversion: 34.2%</div>
+                                <div class="sub-item text-label">Lead Response Time: 2.3h</div>
+                                <div class="sub-item text-label">Customer Lifetime Value...</div>
+                                <div class="sub-item text-label">Churn Rate: 3.1%</div>
+
+                            </div>
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span class="text-label">Predictive Analysis</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks">
+                                <div class="sub-item text-label">Q4 Revenue Forecast: $2...</div>
+                                <div class="sub-item text-label">Resource Demand: High</div>
+                                <div class="sub-item text-label">Market Trends: Positive</div>
+                                <div class="sub-item text-label">Risk Assesment: Low</div>
+
+
+                            </div>
+
+                        </div>
                     </div>
-
 
                     <!-- Tasks Section -->
                     <div class="section" id="tasksSection" style="display:none;">
-                        <div class="quick-actions">
-                            <button>➕ <span class="text-label">New Task</span></button>
-                            <button>⚲ <span class="text-label">Filter</span></button>
+                        <div class="task-group">
+                            <div class="category-heading text-label">Quick Actions</div>
+                            <div class="task-header">
+                                <i class="fa-solid fa-plus"></i><span class="text-label">New Task</span>
+                            </div>
+                            <div class="task-header">
+                                <i class="fa-solid fa-filter"></i> <span class="text-label">Filter</span>
+                            </div>
                         </div>
+                        <div class="category-heading text-label">My Tasks</div>
+
                         <div class="task-group">
                             <div class="task-header" onclick="toggleSubTasks(this)">
-                                ⏰ <span class="text-label">Due Today</span>
-                                <span class="text-label arrow">▼</span>
+                                <i class="fa-solid fa-calendar-day"></i>
+                                <span class="text-label">Due Today</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks" style="display:none;">
+                                <div class="sub-item text-label">Review Design Mockups</div>
+                                <div class="sub-item text-label">Update documentation</div>
+                                <div class="sub-item text-label">Test new feature</div>
+                            </div>
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-solid fa-spinner"></i>
+                                <span class="text-label">In Progress</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
                             </div>
                             <div class="sub-tasks">
-                                <div>Review Design Mockups</div>
-                                <div>Update documentation</div>
-                                <div>Test new feature</div>
+                                <div class="sub-item text-label">Implement user auth</div>
+                                <div class="sub-item text-label">Database migration</div>
+                            </div>
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                <i class="fa-regular fa-circle-check"></i>
+                                <span class="text-label">Completed</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                            <div class="sub-tasks">
+                                <div class="sub-item text-label">Fixed login bug</div>
+                                <div class="sub-item text-label">Update dependencies</div>
+                                <div class="sub-item text-label">Code review completed</div>
+                            </div>
+                        </div>
+                        <div class="category-heading text-label">Other</div>
+
+                        <div class="task-group">
+                            <div class="task-header">
+                                <i class="fa-regular fa-star"></i>
+                                <span class="text-label">Priority tasks</span>
+                                <span><i class="text-label arrow fa-solid fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+                        <div class="task-group">
+                            <div class="task-header">
+
+                                <i class="fa-solid fa-box-archive"></i>
+
+                                <div class="text-label">Archived</div>
                             </div>
                         </div>
                     </div>
-
                     <!-- Settings Section -->
                     <div class="section" id="settingsSection" style="display:none;">
-                        <div>👤 <span class="text-label">Profile</span></div>
-                        <div>🔒 <span class="text-label">Security</span></div>
-                        <div>⚙ <span class="text-label">Preferences</span></div>
+                        <div><i class="fa-solid fa-user task-header"></i> </div>
+                        <div><i class="fa-solid fa-square-check task-header"></i></div>
+                        <div><i class="fa-solid fa-bell task-header"></i> </div>
+                        <div> <i class="fa-solid fa-gear task-header"></i></div>
+                        <div><i class="fa-regular fa-snowflake task-header"></i></div>
                     </div>
-
                 </div>
+
+
+
             </div>
         </div>
+    </div>
 
     </div>
 

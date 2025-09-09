@@ -1,10 +1,14 @@
+
 const toggleBtn = document.getElementById('toggleBtn');
 const rightPanel = document.getElementById('rightPanel');
+const arrowIcon = toggleBtn.querySelector('i');
 
 // Toggle expand/collapse
+
 toggleBtn.addEventListener('click', () => {
     rightPanel.classList.toggle('expanded');
-    toggleBtn.textContent = rightPanel.classList.contains('expanded') ? '⬅' : '➡';
+    arrowIcon.classList.toggle('fa-chevron-right', !rightPanel.classList.contains('expanded'));
+    arrowIcon.classList.toggle('fa-chevron-left', rightPanel.classList.contains('expanded'));
 });
 
 // Show only selected section
@@ -35,28 +39,18 @@ function showSection(sectionId) {
         `<span class="text-label">${headingMap[sectionId]}</span>`;
 }
 
-
-
 // Expand/collapse subtasks
 function toggleSubTasks(header) {
     const subTasks = header.nextElementSibling;
-    subTasks.classList.toggle('visible');
     const arrow = header.querySelector('.arrow');
-    if (arrow) {
-        arrow.textContent = subTasks.classList.contains('visible') ? '▲' : '▼';
-    }
-}
-
-function toggleSubMenu(element) {
-    const subMenu = element.nextElementSibling;
-    const arrow = element.querySelector(".arrow");
-
-    if (subMenu.style.display === "block") {
-        subMenu.style.display = "none";
-        arrow.textContent = "▶"; // collapsed
+    if (subTasks.style.display === "block") {
+        subTasks.style.display = "none";
+        arrow.classList.remove("fa-chevron-up");
+        arrow.classList.add("fa-chevron-down");
     } else {
-        subMenu.style.display = "block";
-        arrow.textContent = "▼"; // expanded
+        subTasks.style.display = "block";
+        arrow.classList.remove("fa-chevron-down");
+        arrow.classList.add("fa-chevron-up");
     }
 }
 
