@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Sidebar Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <!-- Left narrow bar -->
+        <div class="left-bar">
+            <div class="top-buttons">
+                <button>=</button>
+                <button onclick="showSection('dashboard')">D</button>
+                <button onclick="showSection('tasks')">T</button>
+            </div>
+            <div class="bottom-buttons">
+                <button onclick="showSection('settings')">S</button>
+                <button>U</button>
+            </div>
+        </div>
+        <!-- Right panel -->
+        <div class="right-panel" id="rightPanel">
+            <button class="toggle-btn" id="toggleBtn">➡</button>
+            <div class="content">
+
+                <!-- Dynamic Heading -->
+                <div id="dynamicHeading" class="section-heading">
+                    <span class="text-label">Dashboard</span>
+                </div>
+
+                <!-- Common Search Bar -->
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search..." class="text-label">
+                </div>
+
+                <!-- Dynamic Content Area (all pre-written) -->
+                <div id="dynamicContent">
+                    <!-- Dashboard Section -->
+                    <div class="section" id="dashboardSection">
+                        <!-- Category 1 -->
+                        <div class="category-heading">Dashboard Types</div>
+                        <div class="menu-item">👁️ <span class="text-label">Overview</span></div>
+
+                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
+                            📄 <span class="text-label">Executive Summary</span>
+                            <span class="arrow">▶</span>
+                        </div>
+                        <div class="sub-menu">
+                            <div class="sub-item">Revenue Overview</div>
+                            <div class="sub-item">Key Performance Indicators</div>
+                            <div class="sub-item">Strategic Goals Progress</div>
+                            <div class="sub-item">Department Highlights</div>
+                        </div>
+
+                        <div class="menu-item">📊 <span class="text-label">Operations Dashboard</span></div>
+
+                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
+                            💹 <span class="text-label">Financial Dashboard</span>
+                            <span class="arrow">▶</span>
+                        </div>
+                        <div class="sub-menu">
+                            <div class="sub-item">Budget Overview</div>
+                            <div class="sub-item">Expense Tracking</div>
+                            <div class="sub-item">Profit & Loss Reports</div>
+                        </div>
+
+                        <!-- Category 2 -->
+                        <div class="category-heading">Report Summaries</div>
+                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
+                            📑 <span class="text-label">Weekly Reports</span>
+                            <span class="arrow">▶</span>
+                        </div>
+                        <div class="sub-menu">
+                            <div class="sub-item">Team Status</div>
+                            <div class="sub-item">Project Updates</div>
+                        </div>
+
+                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
+                            ⭐ <span class="text-label">Monthly Insights</span>
+                            <span class="arrow">▶</span>
+                        </div>
+                        <div class="sub-menu">
+                            <div class="sub-item">Market Trends</div>
+                            <div class="sub-item">Sales Growth</div>
+                        </div>
+
+                        <div class="menu-item expandable" onclick="toggleSubMenu(this)">
+                            📊 <span class="text-label">Quarterly Analysis</span>
+                            <span class="arrow">▶</span>
+                        </div>
+                        <div class="sub-menu">
+                            <div class="sub-item">Q1 Review</div>
+                            <div class="sub-item">Q2 Review</div>
+                            <div class="sub-item">Q3 Review</div>
+                            <div class="sub-item">Q4 Review</div>
+                        </div>
+
+                        <!-- Category 3 -->
+                        <div class="category-heading">Business Intelligence</div>
+                        <div class="menu-item">📈 <span class="text-label">Performance Metrics</span></div>
+                        <div class="menu-item">🤖 <span class="text-label">Predictive Analytics</span></div>
+                    </div>
+
+
+                    <!-- Tasks Section -->
+                    <div class="section" id="tasksSection" style="display:none;">
+                        <div class="quick-actions">
+                            <button>➕ <span class="text-label">New Task</span></button>
+                            <button>⚲ <span class="text-label">Filter</span></button>
+                        </div>
+                        <div class="task-group">
+                            <div class="task-header" onclick="toggleSubTasks(this)">
+                                ⏰ <span class="text-label">Due Today</span>
+                                <span class="text-label arrow">▼</span>
+                            </div>
+                            <div class="sub-tasks">
+                                <div>Review Design Mockups</div>
+                                <div>Update documentation</div>
+                                <div>Test new feature</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Section -->
+                    <div class="section" id="settingsSection" style="display:none;">
+                        <div>👤 <span class="text-label">Profile</span></div>
+                        <div>🔒 <span class="text-label">Security</span></div>
+                        <div>⚙ <span class="text-label">Preferences</span></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

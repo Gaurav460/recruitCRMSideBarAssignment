@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    /* center horizontally */
+    align-items: center;
+    /* center vertically */
+    height: 100vh;
+}
+
+.sidebar {
+    display: flex;
+    height: 600px;
+    /* fixed height for center */
+    border: 1px solid white;
+}
+
+/* Left narrow bar */
+.left-bar {
+    width: 30px;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid white;
+}
+
+.left-bar .top-buttons,
+.left-bar .bottom-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.left-bar button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: gray;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+/* Right panel */
+.right-panel {
+    width: 60px;
+    background: #222;
+    overflow: hidden;
+    transition: width 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel.expanded {
+    width: 300px;
+}
+
+.toggle-btn {
+    align-self: flex-end;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.content {
+    flex: 1;
+    padding: 10px;
+}
+
+/* Text labels hidden in collapsed state */
+.right-panel .text-label {
+    display: none;
+}
+
+.right-panel.expanded .text-label {
+    display: inline;
+    margin-left: 8px;
+}
+
+/* Search bar (common for all buttons) */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #333;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    background: transparent;
+    color: white;
+}
+
+.search-icon {
+    margin-right: 5px;
+}
+
+.section-heading {
+    font-size: 14px;
+    margin: 10px 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.quick-actions button,
+.task-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    text-align: left;
+}
+
+.task-group {
+    margin: 10px 0;
+}
+
+.sub-tasks {
+    margin-left: 20px;
+    display: none;
+}
+
+.sub-tasks.visible {
+    display: block;
+}
+.left-bar button.active {
+    background: #555;
+    /* darker gray to show active */
+}
+.category-heading {
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #aaa;
+}
+
+.menu-item {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu-item:hover {
+    background: #333;
+}
+
+.expandable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sub-menu {
+    display: none;
+    margin-left: 20px;
+}
+
+.sub-item {
+    padding: 5px 0;
+    color: #ccc;
+}
+/* Right panel scrollable content */
+.right-panel .content {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 100vh;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+.right-panel .content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide labels and arrows when collapsed */
+.right-panel.collapsed .text-label,
+.right-panel.collapsed .arrow {
+    display: none;
+}
+
+/* Search bar in collapsed state: only icon visible */
+.right-panel.collapsed .search-bar input {
+    display: none;
+}
+
+.right-panel.collapsed .search-icon {
+    display: inline-block;
+}
+
+/* Ensure sub-menus never leak when collapsed */
+.right-panel.collapsed .sub-menu {
+    display: none !important;
+}
