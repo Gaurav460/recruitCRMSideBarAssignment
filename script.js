@@ -54,6 +54,20 @@ function toggleSubTasks(header) {
     }
 }
 
+// Get all left-bar icons
+const sidebarIcons = document.querySelectorAll(".left-bar span");
+
+// Add click event to each
+sidebarIcons.forEach(icon => {
+    icon.addEventListener("click", () => {
+        // Remove active from all
+        sidebarIcons.forEach(i => i.classList.remove("active"));
+        // Add active to clicked one
+        icon.classList.add("active");
+    });
+});
+
 
 // Load Dashboard by default
 showSection('tasks');
+document.querySelector(".left-bar span:nth-child(3)").classList.add("active");
