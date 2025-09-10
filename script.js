@@ -13,16 +13,6 @@ toggleBtn.addEventListener('click', () => {
 
 // Show only selected section
 function showSection(sectionId) {
-    // Remove active class from all buttons
-    document.querySelectorAll('.left-bar button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    // Add active class to clicked button
-    const clickedBtn = Array.from(document.querySelectorAll('.left-bar button'))
-        .find(btn => btn.getAttribute('onclick')?.includes(sectionId));
-    if (clickedBtn) clickedBtn.classList.add('active');
-
     // Show only selected section
     document.querySelectorAll('#dynamicContent .section').forEach(sec => {
         sec.style.display = "none";

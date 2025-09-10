@@ -34,16 +34,6 @@ body {
     padding: 10px 0;
 }
 
-.left-bar button {
-    width: 20px;
-    height: 20px;
-    border: none;
-    background: gray;
-    color: white;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
 .header-bar {
     display: flex;
     justify-content: space-between;
